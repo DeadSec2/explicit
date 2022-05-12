@@ -1,0 +1,120 @@
+activity1.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<TextView
+android:id="@+id/textView2"
+android:layout_width="185dp"
+
+android:layout_height="0dp"
+android:layout_marginTop="150dp"
+android:layout_marginBottom="109dp"
+android:text="Go to Second Activity"
+app:layout_constraintBottom_toTopOf="@+id/button"
+app:layout_constraintHorizontal_bias="0.407"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.219" />
+<Button
+android:id="@+id/button"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginEnd="42dp"
+android:layout_marginBottom="376dp"
+android:text="Click"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="@+id/textView2"
+app:layout_constraintTop_toBottomOf="@+id/textView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+Java1.java
+
+package com.example.explicit_intent;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity extends AppCompatActivity {
+Button button;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+button =findViewById(R.id.button);
+button.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+Intent i = new Intent(getApplicationContext(), MainActivity2.class);
+
+startActivity(i);
+}
+});
+}
+}
+
+activity2.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity2">
+<TextView
+android:id="@+id/textView"
+android:layout_width="150dp"
+android:layout_height="0dp"
+android:layout_marginTop="139dp"
+android:layout_marginBottom="167dp"
+android:text="Go to First Activity"
+app:layout_constraintBottom_toTopOf="@+id/button2"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+<Button
+android:id="@+id/button2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="148dp"
+android:layout_marginBottom="330dp"
+android:text="prv"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+Java2.java
+
+package com.example.explicit_intent;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity2 extends AppCompatActivity {
+Button button2;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main2);
+button2 =findViewById(R.id.button2);
+button2.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+Intent i = new Intent(getApplicationContext(), MainActivity.class);
+startActivity(i);
+}
+});
+}
+}
